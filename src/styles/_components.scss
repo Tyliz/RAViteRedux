@@ -1,0 +1,17 @@
+@use 'root';
+
+.task {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.task--completed {
+  color: root.$succesful-color;
+  text-decoration: line-through;
+  text-decoration-color: root.$succesful-color;
+}
+
+.task--pending {
+  color: root.$warning-color;
+  text-decoration: none;
+}

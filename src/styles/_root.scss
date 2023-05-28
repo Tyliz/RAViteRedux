@@ -1,0 +1,11 @@
+:root {
+  --primary-bg-color: #fff;
+  --primary-color: #2e0045;
+  --succesful-color: #00883b;
+  --warning-color: #a49605;
+}
+
+$primary-bg-color: var(--primary-bg-color);
+$primary-color: var(--primary-color);
+$succesful-color: var(--succesful-color);
+$warning-color: var(--warning-color);
