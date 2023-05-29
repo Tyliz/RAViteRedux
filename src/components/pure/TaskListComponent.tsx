@@ -17,10 +17,12 @@ export const TaskListComponent = (): React.JSX.Element => {
       <h1 className='title'>Your Tasks</h1>
       <ul className='todo-list'>
         {
-          lstTask.map((task, index) => (
-            // <p key={ index }>{task.text}</p>
+          lstTask.map((task, index) => {
+            console.log('task', task)
+
+            return(
             <TaskComponent key={ index } onToggleTask={ () => onToggleTask(task.id) } task={ task } />
-          ))
+          )})
         }
       </ul>
     </div>

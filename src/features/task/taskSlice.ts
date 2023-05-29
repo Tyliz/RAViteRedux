@@ -4,6 +4,7 @@ import Task from '../../classes/task'
 
 interface TaskState {
   lstTask: Task[]
+  idLastTask: number
   filter: string
 }
 
@@ -13,7 +14,8 @@ export const enum filterTask {
 }
 
 const initialState: TaskState = {
-  lstTask: [{id: 1, text: 'dfsdf', completed: false}],
+  lstTask: [],
+  idLastTask: 0,
   filter: filterTask.SHOW_ALL,
 }
 
@@ -21,23 +23,22 @@ const TaskSlice = createSlice({
   name: 'task',
   initialState,
   reducers: {
-    ADD_TODO: (state, action: PayloadAction<Task>) => {
-      state.lstTask = [
-        ...state.lstTask,
-        action.payload
-      ]
+    ADD_TODO: (state, action: PayloadAction<string>) => {
+      state.lstTask.push(new Task(state.idLastTask, action.payload))
+      state.idLastTask++
     },
     TOGGLE_TODO: (state, action: PayloadAction<number>) => {
       state.lstTask = state.lstTask.map((task) =>
         task.id == action.payload
-        ? {
-          ...task,
-          completed: !task.completed
-        }
+        ? new Task(
+          task.id,
+          task.text,
+          !task.completed,
+        )
         : task
       )
     }
-  }
+  },
 })
 
 export const {
