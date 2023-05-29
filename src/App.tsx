@@ -1,14 +1,39 @@
-import React from 'react'
-import './styles/app.scss'
-import { TaskListComponent } from './components/pure/TaskListComponent'
-import { TaskFormComponent } from './components/forms/TaskFormComponent'
+import {
+  BrowserRouter,
+  Navigate,
+  Route,
+  Routes
+} from 'react-router-dom'
 
-function App(): React.JSX.Element {
+import '@fortawesome/fontawesome-svg-core/styles.css'
+import { NotFoundPage } from './pages/404/NotFoundPage'
+import LoginForm from './components/forms/LoginForm'
+
+
+function App() {
+  // TODO: change to sessionStorage or something else
+  const loggedIn = false
+
   return (
-    <>
-      <TaskListComponent />
-      <TaskFormComponent />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/'
+          element={
+            loggedIn ?
+              <Navigate to='/dashboard' /> :
+              <Navigate to='/login' />
+          }
+        />
+        <Route path='/login'
+          element={
+            !loggedIn ?
+              <LoginForm /> :
+              <Navigate to='/dashboard' />
+          }
+        />
+        <Route path='*' element={ <NotFoundPage /> } />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
