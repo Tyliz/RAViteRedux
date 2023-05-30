@@ -8,27 +8,38 @@ import {
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import { NotFoundPage } from './pages/404/NotFoundPage'
 import LoginForm from './components/forms/LoginForm'
+import NavContainer from './components/partials/NavContainer'
+import { useAppSelector } from './app/hooks'
+
+// Styles
+import './styles/app.scss'
+import { HomeComponent } from './components/pure/HomeComponent'
+import { TaskListComponent } from './components/pure/TaskListComponent'
 
 
 function App() {
-  // TODO: change to sessionStorage or something else
-  const loggedIn = false
+  const isLogged = useAppSelector((state) => state.session.isLogged)
+
 
   return (
     <BrowserRouter>
+      <NavContainer />
       <Routes>
         <Route path='/'
-          element={
-            loggedIn ?
-              <Navigate to='/dashboard' /> :
-              <Navigate to='/login' />
-          }
+          element={ <HomeComponent /> }
         />
         <Route path='/login'
           element={
-            !loggedIn ?
+            !isLogged ?
               <LoginForm /> :
-              <Navigate to='/dashboard' />
+              <Navigate to='/' />
+          }
+        />
+        <Route path='/Task'
+          element={
+            !isLogged ?
+              <TaskListComponent /> :
+              <Navigate to='/' />
           }
         />
         <Route path='*' element={ <NotFoundPage /> } />

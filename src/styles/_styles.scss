@@ -1,0 +1,35 @@
+@use 'root';
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+.container {
+  width: calc(100vw - 4rem);
+  padding: 2rem;
+  margin: 0;
+  height: calc(98vh - 7rem);
+}
+
+.fieldset {
+  border-radius: .5rem;
+  max-width: min(calc(100% - 2rem), 350px);
+  margin: auto;
+  padding: 1rem 1rem;
+}
+
+.fieldset__legend {
+  color: root.$primary-color;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.text-center {
+  text-align: center;
+}

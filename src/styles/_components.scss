@@ -1,0 +1,129 @@
+@use 'root';
+
+.nav {
+  width: 100vw;
+  height: min(8vh);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: root.$primary-bg-color;
+  border-bottom: 0.2rem solid root.$primary-color;
+  background: root.$primary-color;
+}
+
+.link {
+  padding: .2rem;
+  margin: 0 .2rem;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.1rem;
+  font-weight: bold;
+  border-bottom: 0.15rem solid root.$transparent;
+
+  &:hover {
+    border-bottom: 0.15rem solid root.$primary-color;
+  }
+
+  &:active {
+    color: root.$primary-color;
+  }
+}
+
+.nav-link {
+  @extend .link;
+  color: root.$primary-bg-color;
+
+  &:hover {
+    border-bottom: 0.15rem solid root.$primary-bg-color;
+  }
+
+  &:active {
+    color: root.$primary-bg-color;
+  }
+}
+
+.form-container {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.form-field {
+  width: 100%;
+  display: grid;
+  gap: .5rem;
+}
+
+.form-field__label {
+  color: root.$primary-color;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.form-field__input {
+  width: auto;
+  padding: 0.1rem 0.5rem;
+  border: 0.12rem solid root.$primary-color;
+  font-size: 1rem;
+  line-height: 1.8rem;
+  height: 2rem;
+  border-radius: 0.5rem;
+
+  &:focus {
+    outline: 0.1rem solid root.$primary-color;
+    box-shadow: .2rem .2rem .5rem root.$primary-color;
+  }
+}
+
+.error-message {
+  width: auto;
+  font-size: .9rem;
+  color: root.$danger-color;
+}
+
+.btn {
+  font-size: 1rem;
+  color: root.$primary-color;
+  border: 0.15rem solid root.$primary-color;
+  border-radius: 0.3rem;
+  background: root.$primary-bg-color;
+  padding: 0.4rem;
+  text-decoration: none;
+
+  &:hover {
+    cursor: pointer;
+    color: root.$primary-bg-color;
+    background-color: root.$primary-color;
+  }
+}
+
+.btn-menu-icon {
+  @extend .btn;
+  display: grid;
+  width: min(10rem, 100%);
+  place-items: center;
+}
+
+.btn-menu-icon__icon {
+  font-size: 2.5rem;
+}
+
+.btn-menu-icon__text {
+  font-size: 1rem;
+}
+
+.task {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.task--completed {
+  color: root.$succesful-color;
+  text-decoration: line-through;
+  text-decoration-color: root.$succesful-color;
+}
+
+.task--pending {
+  color: root.$warning-color;
+  text-decoration: none;
+}
