@@ -12,7 +12,6 @@ import { faBan } from '@fortawesome/free-solid-svg-icons'
 
 
 const LoginForm = () => {
-
   const navigate = useNavigate()
 
   return (

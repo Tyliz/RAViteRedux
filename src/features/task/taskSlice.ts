@@ -24,8 +24,8 @@ const TaskSlice = createSlice({
   initialState,
   reducers: {
     ADD_TODO: (state, action: PayloadAction<string>) => {
-      state.lstTask.push(new Task(state.idLastTask, action.payload))
       state.idLastTask++
+      state.lstTask.push(new Task(state.idLastTask, action.payload))
     },
     TOGGLE_TODO: (state, action: PayloadAction<number>) => {
       state.lstTask = state.lstTask.map((task) =>

@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes, { type InferProps } from 'prop-types'
 import Task from '../../classes/task'
 
-
 const TaskComponentProps = {
   onToggleTask: PropTypes.func.isRequired,
   task: PropTypes.instanceOf(Task).isRequired,
@@ -27,9 +26,9 @@ const TaskComponent = (
 
 
   return (
-    <li onClick={ onToggleTask } className={ getClassTask() }>
+    <div onClick={ onToggleTask } className={ getClassTask() }>
       { task.id } - { task.text }
-    </li>
+    </div>
   )
 }
 

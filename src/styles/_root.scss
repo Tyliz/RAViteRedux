@@ -8,13 +8,17 @@
   font-synthesis: none;
   text-rendering: optimizeLegibility;
 
+  --transparent: #fff0;
   --primary-bg-color: #fff;
-  --primary-color: #2e0045;
-  --succesful-color: #00883b;
-  --warning-color: #a49605;
+  --primary-color: #4b0070;
+  --danger-color: #b30000;
+  --succesful-color: #00b74f;
+  --warning-color: #d7c500;
 }
 
+$transparent: var(--transparent);
 $primary-bg-color: var(--primary-bg-color);
 $primary-color: var(--primary-color);
+$danger-color: var(--danger-color);
 $succesful-color: var(--succesful-color);
 $warning-color: var(--warning-color);

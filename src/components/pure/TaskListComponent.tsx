@@ -2,6 +2,7 @@ import React from 'react'
 import { useAppDispatch, useAppSelector } from '../../app/hooks'
 import TaskComponent from './TaskComponent'
 import { TOGGLE_TODO } from '../../features/task/taskSlice'
+import { TaskFormComponent } from '../forms/TaskFormComponent'
 
 
 export const TaskListComponent = (): React.JSX.Element => {
@@ -15,13 +16,14 @@ export const TaskListComponent = (): React.JSX.Element => {
   return (
     <div className='container'>
       <h1 className='title'>Your Tasks</h1>
-      <ul className='todo-list'>
+      <div className='todo-list'>
         {
           lstTask.map((task, index) => (
             <TaskComponent key={ index } onToggleTask={ () => onToggleTask(task.id) } task={ task } />
           ))
         }
-      </ul>
+      </div>
+      <TaskFormComponent />
     </div>
   )
 }
