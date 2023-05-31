@@ -1,4 +1,4 @@
-import { faTasks } from '@fortawesome/free-solid-svg-icons'
+import { faDog, faTasks } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import { NavLink } from 'react-router-dom'
@@ -10,6 +10,12 @@ export const HomeComponent = (): React.JSX.Element => {
         <>
           <FontAwesomeIcon icon={ faTasks } className='btn-menu-icon__icon' />
           <span className='btn-menu-icon__text'>Task</span>
+        </>
+      }/>
+      <NavLink to='/Pokemon' className='btn-menu-icon' children={
+        <>
+          <FontAwesomeIcon icon={ faDog } className='btn-menu-icon__icon' />
+          <span className='btn-menu-icon__text'>Pokemon</span>
         </>
       }/>
     </div>

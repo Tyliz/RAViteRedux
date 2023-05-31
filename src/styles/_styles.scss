@@ -14,7 +14,9 @@ h1 {
   width: calc(100vw - 4rem);
   padding: 2rem;
   margin: 0;
-  height: calc(98vh - 7rem);
+  height: calc(98vh - 6.7rem);
+  max-height: -webkit-fill-available;
+  overflow-y: auto;
 }
 
 .fieldset {

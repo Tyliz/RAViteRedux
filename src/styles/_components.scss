@@ -112,6 +112,61 @@
   font-size: 1rem;
 }
 
+.paginator {
+	display: grid;
+	width: 95%;
+	gap: 0.15rem;
+	grid-auto-columns: minmax(2rem, max-content);
+	grid-auto-flow: column;
+	place-content: center;
+}
+
+.btn-page {
+  color: root.$primary-color;
+  text-decoration: none;
+  border: 0.15rem solid root.$primary-color;
+  border-radius: 0.25rem;
+  padding: 0.25rem;
+  text-align: center;
+
+  &.actual {
+    cursor: default;
+    background-color: root.$primary-color;
+    color: root.$primary-bg-color;
+  }
+
+  &:hover {
+    text-decoration: none;
+    background-color: root.$primary-color;
+    color: root.$primary-bg-color;
+  }
+}
+
+.table {
+  width: 100%;
+  border: .1rem solid root.$primary-color;
+  border-radius: .3rem;
+  border-spacing: 0;
+}
+
+.table__head-col {
+  border-bottom: .1rem solid root.$primary-color;
+}
+
+.table__col {
+  border-bottom: .1rem solid root.$primary-color;
+
+  &.table__col--center {
+    text-align: center;
+  }
+}
+
+.table__row {
+  &:last-child .table__col {
+    border: none;
+  }
+}
+
 .task {
   cursor: pointer;
   text-decoration: none;

@@ -15,6 +15,7 @@ import { useAppSelector } from './app/hooks'
 import './styles/app.scss'
 import { HomeComponent } from './components/pure/HomeComponent'
 import { TaskListComponent } from './components/pure/TaskListComponent'
+import PokeListComponent from './components/pure/PokeListComponent'
 
 
 function App() {
@@ -39,6 +40,13 @@ function App() {
           element={
             !isLogged ?
               <TaskListComponent /> :
+              <Navigate to='/' />
+          }
+        />
+        <Route path='/Pokemon'
+          element={
+            !isLogged ?
+              <PokeListComponent /> :
               <Navigate to='/' />
           }
         />

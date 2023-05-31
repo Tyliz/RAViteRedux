@@ -4,17 +4,22 @@ import TaskReducer from '../features/task/taskSlice'
 import thunk from 'redux-thunk'
 import logger from 'redux-logger'
 import SessionReducer from '../features/session/sessionSlice'
+import { pokeApiSlice } from '../features/pokemon/pokeApiSlice'
+import PaginationReducer from '../features/pagination/paginationSlice'
 
 
 export const store = configureStore({
   reducer: {
     session: SessionReducer,
     counter: CounterReducer,
-    task: TaskReducer
+    task: TaskReducer,
+    paginator: PaginationReducer,
+    [pokeApiSlice.reducerPath]: pokeApiSlice.reducer,
   },
   middleware: [
     thunk,
     logger,
+    pokeApiSlice.middleware,
   ]
 })
 
